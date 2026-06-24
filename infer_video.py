@@ -1,6 +1,3 @@
-Exit code: 0
-Wall time: 0.2 seconds
-Output:
 """Run AED detection on a video or webcam stream using trained YOLO weights.
 
 Examples (Windows CMD):

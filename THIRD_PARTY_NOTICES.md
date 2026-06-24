@@ -1,6 +1,3 @@
-Exit code: 0
-Wall time: 0.2 seconds
-Output:
 # 第三方軟體與資料來源
 
 ## Ultralytics YOLO

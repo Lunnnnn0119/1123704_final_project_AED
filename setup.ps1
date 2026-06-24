@@ -1,6 +1,3 @@
-Exit code: 0
-Wall time: 0.2 seconds
-Output:
 <#
 Creates the project virtual environment and installs CUDA PyTorch + Ultralytics.
 Run once: .\\setup.ps1

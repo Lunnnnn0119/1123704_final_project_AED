@@ -1,6 +1,3 @@
-Exit code: 0
-Wall time: 0.2 seconds
-Output:
 """Train an AED detector with Ultralytics YOLOv8.
 
 Run from PowerShell with: .\\.venv\\Scripts\\python.exe train.py

@@ -1,6 +1,3 @@
-Exit code: 0
-Wall time: 0.2 seconds
-Output:
 """Evaluate a trained AED YOLO model on the held-out test split."""
 
 from __future__ import annotations

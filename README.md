@@ -1,6 +1,3 @@
-Exit code: 0
-Wall time: 0.2 seconds
-Output:
 # Yuan Ze University AED Object Detection
 
 This final project detects Automated External Defibrillators (AEDs) on the Yuan Ze University campus. It uses a custom AED image dataset exported in YOLOv8 format and a YOLOv8 Nano object detector. The included application supports training, test-set evaluation, video inference, and live webcam inference.

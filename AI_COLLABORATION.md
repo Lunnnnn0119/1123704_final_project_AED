@@ -1,6 +1,3 @@
-Exit code: 0
-Wall time: 0.2 seconds
-Output:
 # AI 協作紀錄摘要
 
 本專題使用 AI 作為程式開發輔助工具，協助範圍如下：
