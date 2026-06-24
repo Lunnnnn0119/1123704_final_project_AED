@@ -1,0 +1,28 @@
+Exit code: 0
+Wall time: 0.2 seconds
+Output:
+.venv/
+__pycache__/
+outputs/*
+!outputs/aed_detection.mp4
+runs/*
+!runs/aed_yolov8n/
+runs/aed_yolov8n/*
+!runs/aed_yolov8n/args.yaml
+!runs/aed_yolov8n/results.csv
+!runs/aed_yolov8n/results.png
+!runs/aed_yolov8n/confusion_matrix_normalized.png
+!runs/aed_yolov8n/val_batch0_pred.jpg
+!runs/aed_yolov8n/weights/
+runs/aed_yolov8n/weights/*
+!runs/aed_yolov8n/weights/best.pt
+!runs/detect/
+runs/detect/*
+!runs/detect/val/
+runs/detect/val/*
+!runs/detect/val/confusion_matrix_normalized.png
+!runs/detect/val/val_batch0_pred.jpg
+yolov8n.pt
+yolo26n.pt
+*.cache
+*.py[cod]
