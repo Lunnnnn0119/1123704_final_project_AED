@@ -19,7 +19,8 @@
 
 ## 環境安裝
 
-請先安裝 Python 3.11 或使用 Anaconda Prompt。進入專案根目錄後執行：
+請先安裝 Python 3.11 或使用 Anaconda Prompt。
+進入專案根目錄後執行：
 
 ```bat
 .\setup.bat
