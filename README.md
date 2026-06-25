@@ -1,84 +1,86 @@
-# Yuan Ze University AED Object Detection
+# AED 偵測期末專題
 
-This final project detects Automated External Defibrillators (AEDs) on the Yuan Ze University campus. It uses a custom AED image dataset exported in YOLOv8 format and a YOLOv8 Nano object detector. The included application supports training, test-set evaluation, video inference, and live webcam inference.
+本專題使用 YOLOv8 訓練 AED（自動體外心臟電擊去顫器）物件偵測模型，可對圖片資料集訓練、測試集評估，以及影片/攝影機即時推論。
 
-## Repository contents
+## 助教檢查重點
 
-```text
-dataset/AED.v4i.yolov8.zip      # Full YOLOv8 dataset: 219 train, 22 val, 10 test images
-runs/aed_yolov8n/weights/best.pt # Trained best model
-runs/aed_yolov8n/results.*     # Training log and result curves
-runs/detect/val/                # Held-out test prediction and confusion matrix
-outputs/aed_detection.mp4       # Recorded inference demonstration
-train.py                        # Model training
-evaluate.py                     # Test-set evaluation
-infer_video.py                  # Video and webcam inference
-setup.bat                       # Windows CMD / Anaconda Prompt setup
-run_infer_video.bat             # Video-inference shortcut
-```
+| 項目 | 位置 |
+| --- | --- |
+| 訓練程式 | `train.py` |
+| 評估程式 | `evaluate.py` |
+| 影片推論程式 | `infer_video.py` |
+| 資料集 | `dataset/AED.v4i.yolov8.zip` |
+| 訓練完成權重 | `runs/aed_yolov8n/weights/best.pt` |
+| 訓練結果 | `runs/aed_yolov8n/` |
+| 測試集推論結果 | `runs/detect/val/` |
+| Demo 影片 | `outputs/aed_detection.mp4` |
+| AI 協作紀錄 | `AI_COLLABORATION.md` |
+| 第三方套件/授權 | `THIRD_PARTY_NOTICES.md` |
 
-`setup.bat` extracts the included dataset archive to `AED.v4i.yolov8/`, so the project is runnable immediately after setup.
+## 環境安裝
 
-## Installation (Windows)
-
-Install Python 3.11 (or a compatible version). In CMD or Anaconda Prompt at the repository root, run:
+請先安裝 Python 3.11 或使用 Anaconda Prompt。進入專案根目錄後執行：
 
 ```bat
 .\setup.bat
 ```
 
-The script creates a virtual environment, extracts the data, and installs the required packages. CUDA is used automatically when an NVIDIA GPU and compatible driver are available; CPU inference also works.
+此指令會：
 
-## Run the project
+1. 建立 `.venv` 虛擬環境。
+2. 解壓 `dataset/AED.v4i.yolov8.zip` 到 `AED.v4i.yolov8/`。
+3. 安裝 `requirements.txt` 內的套件。
 
-### Evaluate the supplied best model
+## 執行方式
+
+### 1. 評估已訓練模型
 
 ```bat
 .\.venv\Scripts\python.exe .\evaluate.py
 ```
 
-### Run inference on a video
+### 2. 對影片進行 AED 偵測
 
 ```bat
 .\run_infer_video.bat input.mp4
 ```
 
-The annotated video is saved to `outputs/aed_detection.mp4`. To choose a different output file:
+輸出影片預設存到：
+
+```text
+outputs/aed_detection.mp4
+```
+
+也可以指定輸出檔名：
 
 ```bat
 .\run_infer_video.bat input.mp4 outputs\my_result.mp4
 ```
 
-### Live webcam inference
+### 3. 使用攝影機即時偵測
 
 ```bat
 .\.venv\Scripts\python.exe .\infer_video.py --source 0 --show --no-save
 ```
 
-Press `Q` or `Esc` in the preview window to stop.
+按 `Q` 或 `Esc` 可結束視窗。
 
-### Retrain the detector
+### 4. 重新訓練
 
 ```bat
 .\.venv\Scripts\python.exe .\train.py --epochs 200 --model yolov8n.pt
 ```
 
-## Results
+## 模型成果
 
-The model was trained with YOLOv8 Nano, 640x640 images, a maximum of 200 epochs, and early stopping at epoch 82. Its best validation metrics were Precision 0.998, Recall 1.000, mAP@0.5 0.995, and mAP@0.5:0.95 0.964. Training plots and validation samples are in `runs/aed_yolov8n/`.
+- 模型：YOLOv8 Nano
+- 類別數：1 類（AED）
+- 資料集：train 219 張、valid 22 張、test 10 張
+- Validation：Precision 0.998、Recall 1.000、mAP@0.5 0.995、mAP@0.5:0.95 0.964
+- Test：Precision 0.988、Recall 0.909、mAP@0.5 0.905、mAP@0.5:0.95 0.815
 
-On the held-out test set (10 images), the supplied `best.pt` achieved Precision 0.988, Recall 0.909, mAP@0.5 0.905, and mAP@0.5:0.95 0.815. The held-out predictions and normalized confusion matrix are in `runs/detect/val/`.
+訓練曲線、混淆矩陣與推論範例圖已放在 `runs/` 資料夾中。
 
-The small dataset contains augmented images that may be visually similar. These results should be validated further in new campus locations and with real camera footage.
+## 備註
 
-## Demonstration video
-
-The repository includes [`outputs/aed_detection.mp4`](outputs/aed_detection.mp4), a recorded inference demonstration. You can also reproduce it using the video and webcam commands above.
-
-## Data, open source, and AI collaboration
-
-- Dataset: AED images and annotations prepared for this project and exported with Roboflow in YOLOv8 format. The export is marked [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) and is included in [`dataset/AED.v4i.yolov8.zip`](dataset/AED.v4i.yolov8.zip).
-- Model framework: [Ultralytics YOLO](https://github.com/ultralytics/ultralytics), AGPL-3.0.
-- Image/video I/O: [OpenCV](https://opencv.org/), Apache-2.0.
-
-See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for usage and licensing information, and [AI_COLLABORATION.md](AI_COLLABORATION.md) for the required AI-assistance summary.
+本專題資料集規模較小，且部分圖片由資料增強產生，因此成果適合做課堂專題展示。若要實際部署，建議再補充更多不同地點、角度與光線條件下的 AED 影像。

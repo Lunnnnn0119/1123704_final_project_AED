@@ -1,4 +1,4 @@
-"""Evaluate a trained AED YOLO model on the held-out test split."""
+"""使用 test split 評估已訓練好的 AED YOLO 模型。"""
 
 from __future__ import annotations
 
@@ -15,7 +15,7 @@ DEFAULT_DATA = ROOT / "AED.v4i.yolov8" / "data.yaml"
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Evaluate AED YOLO weights.")
+    parser = argparse.ArgumentParser(description="評估 AED YOLO 權重檔。")
     parser.add_argument("--weights", type=Path, default=DEFAULT_WEIGHTS)
     parser.add_argument("--data", type=Path, default=DEFAULT_DATA)
     parser.add_argument("--imgsz", type=int, default=640)
@@ -23,7 +23,7 @@ def main() -> None:
 
     weights = args.weights.resolve()
     if not weights.is_file():
-        raise FileNotFoundError(f"Weights not found: {weights}")
+        raise FileNotFoundError(f"找不到權重檔：{weights}")
 
     device = 0 if torch.cuda.is_available() else "cpu"
     model = YOLO(str(weights))
