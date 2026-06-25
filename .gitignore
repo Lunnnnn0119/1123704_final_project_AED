@@ -1,5 +1,7 @@
 .venv/
 __pycache__/
+AED.v4i.yolov8/
+test*.mp4
 outputs/*
 !outputs/aed_detection.mp4
 runs/*
