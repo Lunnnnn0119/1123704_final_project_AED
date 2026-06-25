@@ -11,10 +11,8 @@ from pathlib import Path
 import torch
 from ultralytics import YOLO
 
-
 ROOT = Path(__file__).resolve().parent
 DEFAULT_DATA = ROOT / "AED.v4i.yolov8" / "data.yaml"
-
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="訓練 YOLOv8 AED 偵測模型。")
