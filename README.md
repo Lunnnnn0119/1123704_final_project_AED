@@ -38,7 +38,7 @@
 .\.venv\Scripts\python.exe .\evaluate.py
 ```
 
-### 2. 對影片進行 AED 偵測
+### 2. 對影片進行 AED 偵測(本次主要)
 
 ```bat
 .\run_infer_video.bat input.mp4
@@ -48,12 +48,6 @@
 
 ```text
 outputs/aed_detection.mp4
-```
-
-也可以指定輸出檔名：
-
-```bat
-.\run_infer_video.bat input.mp4 outputs\my_result.mp4
 ```
 
 ### 3. 使用攝影機即時偵測
