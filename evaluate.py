@@ -8,7 +8,6 @@ from pathlib import Path
 import torch
 from ultralytics import YOLO
 
-
 ROOT = Path(__file__).resolve().parent
 DEFAULT_WEIGHTS = ROOT / "runs" / "aed_yolov8n" / "weights" / "best.pt"
 DEFAULT_DATA = ROOT / "AED.v4i.yolov8" / "data.yaml"
