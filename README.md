@@ -26,7 +26,6 @@
 ```
 
 此指令會：
-
 1. 建立 `.venv` 虛擬環境。
 2. 解壓 `dataset/AED.v4i.yolov8.zip` 到 `AED.v4i.yolov8/`。
 3. 安裝 `requirements.txt` 內的套件。
